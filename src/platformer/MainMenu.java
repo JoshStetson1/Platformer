@@ -16,7 +16,7 @@ public class MainMenu implements MouseListener{
     public void paint(Graphics g){
         Graphics2D g2 = (Graphics2D)g;
         g.drawImage(sky, 0, 0, s);
-        g.setColor(new Color(255, 255, 255, 150));
+        g.setColor(new Color(255, 255, 255, 125));
         g.fillRect(0, 0, s.getWidth(), s.getHeight());
         if(state.equals("main")){
             g.setColor(Color.BLACK);

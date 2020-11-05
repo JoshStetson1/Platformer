@@ -181,7 +181,6 @@ public class Screen extends JPanel implements ActionListener, KeyListener, Mouse
                     if(e.getY() > 225 && e.getY() < 275) restart(true);
                     if(e.getY() > 300 && e.getY() < 350){
                         state = "menu";
-                        m.state = "main";
                         pause = false;
                     }
                 }

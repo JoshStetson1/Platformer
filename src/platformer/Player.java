@@ -63,7 +63,7 @@ public class Player implements MouseListener{
                 if(mx >= x) g.drawImage(s.grabImage(s.SpriteSheet, 4, 5, 30, 30), x+30, y, s);
                 if(mx < x) g.drawImage(s.flipImage(s.grabImage(s.SpriteSheet, 4, 5, 30, 30)), x-30, y, s);
             }
-            if(selectWeapon == 3){
+            if(selectWeapon == 3 || thrown){
                 if(thrown){
                     s.rotateImage(boom, rotate, boomX, boomY, g2);
                     rotate += 10;
@@ -90,9 +90,14 @@ public class Player implements MouseListener{
         if(win){
             if(s.lm.level == s.lm.unlocked) s.lm.unlocked = s.lm.level+1;
             //also save time
-            if(s.minutes <= s.lm.bestTime[s.lm.level-1][0] && s.seconds < s.lm.bestTime[s.lm.level-1][1] || (s.lm.bestTime[s.lm.level-1][0] == 0 && s.lm.bestTime[s.lm.level-1][1] == 0)){
+            if(s.minutes < s.lm.bestTime[s.lm.level-1][0] || (s.lm.bestTime[s.lm.level-1][0] == 0 && s.lm.bestTime[s.lm.level-1][1] == 0)){
                 s.lm.bestTime[s.lm.level-1][0] = s.minutes;
                 s.lm.bestTime[s.lm.level-1][1] = s.seconds;
+            } else if(s.minutes == s.lm.bestTime[s.lm.level-1][0]){
+                if(s.seconds < s.lm.bestTime[s.lm.level-1][1]){
+                    s.lm.bestTime[s.lm.level-1][0] = s.minutes;
+                    s.lm.bestTime[s.lm.level-1][1] = s.seconds;
+                }
             }
             s.s.save();
             
@@ -255,7 +260,6 @@ public class Player implements MouseListener{
                 }
                 if(y < 400 && y > 350){
                     s.state = "menu";
-                    s.m.state = "main";
                     win = false;
                     s.lm.level++;
                 }
