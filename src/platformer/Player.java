@@ -83,7 +83,7 @@ public class Player implements MouseListener{
                 synchronized (s){ s.wait(100);} dead = false;
             } catch(Exception e){}
             money = 0;
-            s.restart(false, false);
+            s.restart(false);
         }
     }
     public void drawWin(Graphics g){
@@ -248,10 +248,10 @@ public class Player implements MouseListener{
             if(x > 250 && x < 500){
                 if(y < 250 && y > 200 && s.lm.level < 10){
                     s.lm.level++;
-                    s.restart(true, true);
+                    s.restart(true);
                 }
                 if(y < 325 && y > 275){
-                    s.restart(true, false);
+                    s.restart(true);
                 }
                 if(y < 400 && y > 350){
                     s.state = "menu";

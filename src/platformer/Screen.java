@@ -41,6 +41,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener, Mouse
     File flame = new File("Sounds\\flame.wav");
     File thrown = new File("Sounds\\throw.wav");
     File open = new File("Sounds\\open.wav");
+    File chestOpen = new File("Sounds\\chestOpen.wav");
     
     String state = "menu";
     
@@ -177,7 +178,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener, Mouse
             }else if(pause){
                 if(e.getX() > 250 && e.getX() < 500){
                     if(e.getY() > 150 && e.getY() < 200) pause = false;
-                    if(e.getY() > 225 && e.getY() < 275) restart(true, false);
+                    if(e.getY() > 225 && e.getY() < 275) restart(true);
                     if(e.getY() > 300 && e.getY() < 350){
                         state = "menu";
                         m.state = "main";
@@ -209,7 +210,7 @@ public class Screen extends JPanel implements ActionListener, KeyListener, Mouse
             }
         }
     }
-    public void restart(boolean restartTimer, boolean next){
+    public void restart(boolean restartTimer){
         p.shoot = true; p.shootTime = System.nanoTime(); p.selectWeapon = 1; p.thrown = false; p.comeBack = false; p.win = false; p.dy = 0; p.money = 0;
         pause = false;
         if(restartTimer){

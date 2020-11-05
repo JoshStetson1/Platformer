@@ -170,11 +170,13 @@ public class List {
             chest = ch.get(i);
             if(s.p.x > chest.x-60 && s.p.x < chest.x+60 && s.p.y == chest.y){
                 if(s.use){
-                    if(s.lm.level == 3){
+                    if(s.lm.level == 3 && s.p.weaponAmount == 1){
+                        s.PlaySound(s.chestOpen);
                         s.p.weaponAmount = 2;
                         s.p.selectWeapon = 2;
                     }
-                    if(s.lm.level == 6){
+                    if(s.lm.level == 6 & s.p.weaponAmount == 2){
+                        s.PlaySound(s.chestOpen);
                         s.p.weaponAmount = 3;
                         s.p.selectWeapon = 3;
                     }
