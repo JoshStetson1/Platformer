@@ -18,8 +18,10 @@ public class Bullet {
         this.bullet = bullet;
     }
     public void paint(Graphics g){
-        x += dx;
-        y += dy;
+        if(!s.pause){
+            x += dx;
+            y += dy;
+        }
         g.drawImage(bullet, x, y, s);
     }
     public Rectangle bullet(){

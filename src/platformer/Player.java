@@ -77,6 +77,7 @@ public class Player implements MouseListener{
     }
     public void checkDead(){
         if(y > 450) dead = true;
+        if(win) dead = false;
         if(dead){
             s.PlaySound(s.die);
             try{

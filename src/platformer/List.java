@@ -1,7 +1,6 @@
 package platformer;
 import java.awt.*;
 import java.util.LinkedList;
-import javax.swing.JOptionPane;
 
 public class List {
     LinkedList<Block> b = new LinkedList<>();
